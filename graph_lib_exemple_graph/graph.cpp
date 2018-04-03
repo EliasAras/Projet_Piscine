@@ -164,14 +164,14 @@ void Graph::make_example()
 
     /// Les sommets doivent être définis avant les arcs
     // Ajouter le sommet d'indice 0 de valeur 30 en x=200 et y=100 avec l'image clown1.jpg etc...
-    add_interfaced_vertex(0, 30.0, 200, 100, "clown1.jpg");
-    add_interfaced_vertex(1, 60.0, 400, 100, "clown2.jpg");
-    add_interfaced_vertex(2,  50.0, 200, 300, "clown3.jpg");
-    add_interfaced_vertex(3,  0.0, 400, 300, "clown4.jpg");
-    add_interfaced_vertex(4,  100.0, 600, 300, "clown5.jpg");
-    add_interfaced_vertex(5,  0.0, 100, 500, "bad_clowns_xx3xx.jpg", 0);
-    add_interfaced_vertex(6,  0.0, 300, 500, "bad_clowns_xx3xx.jpg", 1);
-    add_interfaced_vertex(7,  0.0, 500, 500, "bad_clowns_xx3xx.jpg", 2);
+    add_interfaced_vertex(0, 30.0, 200, 100, "homosapiens.jpg");
+    add_interfaced_vertex(1, 60.0, 400, 100, "Laminaire.jpg");
+    add_interfaced_vertex(2,  50.0, 200, 300, "Loutre_de_mer.jpg");
+    add_interfaced_vertex(3,  0.0, 400, 300, "Mollusque.jpg");
+    add_interfaced_vertex(4,  100.0, 600, 300, "orque.jpg");
+    add_interfaced_vertex(5,  0.0, 100, 500, "Oursins.jpg");
+    add_interfaced_vertex(6,  0.0, 300, 500, "phoque.jpg");
+    add_interfaced_vertex(7,  0.0, 500, 500, "poisson1.jpg");
 
     /// Les arcs doivent être définis entre des sommets qui existent !
     // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
