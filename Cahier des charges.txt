@@ -1,0 +1,13 @@
+- Editer les réseaux (graphes orientés)
+	- noeuds = sommets = espèces
+	- noeuds repésentés par des images
+	- possibilité d'ajuster la position des sommets (drag & drop)
+
+- Chargement et sauvegarde de graphe
+	- Sauver/charger/ajouter/enlever a partir de boutons/cases à cocher
+
+- 3 réseaux écologiques
+	- Chargés depuis 3 fichiers correspondants
+	- Passer de l'un a l'autre sans quitter l'app
+	- Construits sur la base de réseaux écologiques réels, 3 niveaux de complexité croissnate
+	- Le plus complexe = 12 Sommets et 20 arcs
