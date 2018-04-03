@@ -172,6 +172,8 @@ void Graph::make_example()
     add_interfaced_vertex(5,  0.0, 100, 500, "Oursins.jpg");
     add_interfaced_vertex(6,  0.0, 300, 500, "phoque.jpg");
     add_interfaced_vertex(7,  0.0, 500, 500, "poisson1.jpg");
+    add_interfaced_vertex(8,  0.0, 700, 500, "poisson2.jpg");
+
 
     /// Les arcs doivent être définis entre des sommets qui existent !
     // AJouter l'arc d'indice 0, allant du sommet 1 au sommet 2 de poids 50 etc...
