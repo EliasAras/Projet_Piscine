@@ -40,18 +40,21 @@ void Graphe::affichage(BITMAP* buffer, BITMAP* barre)
     }
 
     blit(barre, buffer,0,0,0,600 - barre->h, barre->w, barre->h);
-
-    textprintf_ex(buffer, font, 400, 23, makecol(255,255,0), -1,"%d", mouse_x);
-    textprintf_ex(buffer, font, 440, 23, makecol(255,255,0), -1,"%d", mouse_y);
-
+    outils(buffer);
     blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
     clear_bitmap(buffer);
-
 }
 
 void Graphe::outils(BITMAP* buffer)
 {
-//    rectfill(buffer, )
+    if (is_mouse(745, 50, 5, 50) && mouse_b&1)
+    {
+        rectfill(buffer, 743, 3, 797, 57, makecol(255,0,0));
+        ajouterArete(buffer);
+    }
+
+    rectfill(buffer, 745, 5, 795, 55, makecol(0,250,0));
+
 }
 
 void Graphe::ajouterArete(BITMAP* buffer)
@@ -59,6 +62,8 @@ void Graphe::ajouterArete(BITMAP* buffer)
     Arete* a;
     Sommet* s;
 
+    int prev_mouse_b;
+    int now_mouse_b;
     a= new Arete;
     s= new Sommet;
 
@@ -66,11 +71,14 @@ void Graphe::ajouterArete(BITMAP* buffer)
 
     while(s->getNomImg() == "")
     {
+
+        prev_mouse_b = now_mouse_b;
+        now_mouse_b = mouse_b&1;
         for (unsigned int i(Getsommets().size() - 1); i > 0; --i)
         {
             if(is_mouse(Getsommets()[i]->GetCd_x(), Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h))
             {
-                if(mouse_b&1)
+                if (!prev_mouse_b && now_mouse_b)
                 {
                     s = Getsommets()[i];
                     a->Setdepart(s);
@@ -79,17 +87,19 @@ void Graphe::ajouterArete(BITMAP* buffer)
         }
     }
 
-    rectfill(buffer, a->Getdepart()->GetCd_x()-2, a->Getdepart()->GetCd_y()-2, a->Getdepart()->GetImg()->w +a->Getdepart()->GetCd_x()+1,a->Getdepart()->GetImg()->h + a->Getdepart()->GetCd_y()+1, makecol(255,0,0));
+    rect(screen, a->Getdepart()->GetCd_x()-2, a->Getdepart()->GetCd_y()-2, a->Getdepart()->GetImg()->w +a->Getdepart()->GetCd_x()+1,a->Getdepart()->GetImg()->h + a->Getdepart()->GetCd_y()+1, makecol(255,0,0));
 
     s= new Sommet;
 
     while(s->getNomImg() == "")
     {
+        prev_mouse_b = now_mouse_b;
+        now_mouse_b = mouse_b&1;
         for (unsigned int i(0); i<Getsommets().size(); ++i)
         {
             if(is_mouse(Getsommets()[i]->GetCd_x(), Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h))
             {
-                if(mouse_b&1)
+                if (!prev_mouse_b && now_mouse_b)
                 {
                     s = Getsommets()[i];
                     a->Setarrive(s);
@@ -101,6 +111,7 @@ void Graphe::ajouterArete(BITMAP* buffer)
     tmp.push_back(a);
 
     Setaretes(tmp);
+    std::cout << "ajou reussi" << std::endl;
 }
 
 void Graphe::update(BITMAP* buffer, BITMAP* barre)
@@ -109,7 +120,6 @@ void Graphe::update(BITMAP* buffer, BITMAP* barre)
     {
         if(is_mouse(Getsommets()[i]->GetCd_x(), Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h))
         {
-
             if(mouse_b&1)
             {
 
