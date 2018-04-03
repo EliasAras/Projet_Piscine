@@ -1,4 +1,4 @@
-#include "coords.h"
+    #include "coords.h"
 
 // Renvoie les coordonnées (dans le repère de la position de Frame) de l'intersection
 // entre la demi-droite centre Frame -> vecteur directeur vec et le cadre de la Frame

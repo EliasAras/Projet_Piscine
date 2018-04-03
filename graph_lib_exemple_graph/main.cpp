@@ -15,7 +15,6 @@ int main()
     Graph g;
     g.make_example();
 
-
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )
