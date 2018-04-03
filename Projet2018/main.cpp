@@ -5,8 +5,6 @@
 #include <jpgalleg.h>
 #include <ctime>
 
-
-
 int main()
 {
     std::cout << "Hello world!" << std::endl;

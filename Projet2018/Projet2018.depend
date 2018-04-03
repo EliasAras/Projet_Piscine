@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1522769055 source:c:\users\nathan\documents\github\projet_piscine\projet2018\main.cpp
+1522769445 source:c:\users\nathan\documents\github\projet_piscine\projet2018\main.cpp
 	<iostream>
 	<allegro.h>
 	<png.h>
 	<loadpng.h>
 	<jpgalleg.h>
-	<time.h>
+	<ctime>
 
