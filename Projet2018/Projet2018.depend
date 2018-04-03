@@ -13,3 +13,9 @@
 1522770889 c:\users\nathan\documents\github\projet_piscine\projet2018\include\sommet.h
 	<allegro.h>
 
+1522770843 source:c:\users\nathan\documents\github\projet_piscine\projet2018\src\arete.cpp
+	"Arete.h"
+
+1522770900 c:\users\nathan\documents\github\projet_piscine\projet2018\include\arete.h
+	"Sommet.h"
+
