@@ -1,18 +1,18 @@
 9
 Images\phoque.jpg
-0 0 0 30
+2 2 0 30
 
 Images\mollusque.jpg
-150 0 1 35
+150 2 1 35
 
 Images\orque.jpg
-300 0 2 40
+300 2 2 40
 
 Images\homosapiens.jpg
-450 0 3 45
+450 2 3 45
 
 Images\laminaire.jpg
-0 150 4 50
+2 150 4 50
 
 Images\loutre_de_mer.jpg
 150 150 5 55
@@ -24,4 +24,4 @@ Images\poisson1.jpg
 450 150 7 65
 
 Images\poisson2.jpg
-0 300 8 70
+2 300 8 70

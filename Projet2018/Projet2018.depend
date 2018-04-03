@@ -1,11 +1,5 @@
 # depslib dependency file v1.0
-1522776252 source:c:\users\nathan\documents\github\projet_piscine\projet2018\main.cpp
-	<iostream>
-	<allegro.h>
-	<png.h>
-	<loadpng.h>
-	<jpgalleg.h>
-	<ctime>
+1522780407 source:c:\users\nathan\documents\github\projet_piscine\projet2018\main.cpp
 	"Graphe.h"
 
 1522778485 source:c:\users\nathan\documents\github\projet_piscine\projet2018\src\sommet.cpp
@@ -55,13 +49,18 @@
 
 1522771899 6420046a52a10201ae7e9c3164a368cd36c77
 
-1522778519 source:c:\users\nathan\documents\github\projet_piscine\projet2018\src\graphe.cpp
+1522780523 source:c:\users\nathan\documents\github\projet_piscine\projet2018\src\graphe.cpp
 	"Graphe.h"
 
-1522778485 c:\users\nathan\documents\github\projet_piscine\projet2018\include\graphe.h
+1522780342 c:\users\nathan\documents\github\projet_piscine\projet2018\include\graphe.h
 	"Sommet.h"
 	"Arete.h"
 	<vector>
 	<fstream>
 	<iostream>
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+	<ctime>
 

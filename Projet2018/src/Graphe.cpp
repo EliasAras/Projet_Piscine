@@ -32,26 +32,38 @@ Graphe::~Graphe()
     //dtor
 }
 
-void Graphe::affichage()
+void Graphe::affichage(BITMAP* buffer, BITMAP* barre)
 {
-    for (unsigned int i = 0; i<Getsommets().size() ; ++i)
+    for (unsigned int i(0); i<Getsommets().size(); ++i)
     {
-        std::cout << getSommet(i)->GetCd_x() << std::endl;
-        std::cout << getSommet(i)->GetCd_y() << std::endl;
-        std::cout << getSommet(i)->GetNum() << std::endl;
-        std::cout << getSommet(i)->GetPoids() << std::endl;
-        std::cout << getSommet(i)->getNomImg() << std::endl << std::endl;
-//        std::cout << getSommet(i).GetCd_x() << std::endl;
+        blit(getSommet(i)->GetImg(), buffer, 0, 0, (getSommet(i))->GetCd_x(), (getSommet(i))->GetCd_y(), getSommet(i)->GetImg()->w, getSommet(i)->GetImg()->h);
     }
+
+    blit(barre, buffer,0,0,0,600 - barre->h, barre->w, barre->h);
+
+        blit(buffer, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H);
+        clear_bitmap(buffer);
+
 }
 
-void Graphe::update()
+void Graphe::update(BITMAP* buffer, BITMAP* barre)
 {
-    for(int i(0); i < Getsommets().size(); ++i)
+    for(int i(Getsommets().size()-1); i >= 0 ; --i)
     {
         if(is_mouse(Getsommets()[i]->GetCd_x(), Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h))
         {
-            rect(screen, Getsommets()[i]->GetCd_x(),Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h, makecol(0,255,0));
+            rectfill(buffer, Getsommets()[i]->GetCd_x()-2, Getsommets()[i]->GetCd_y()-2, Getsommets()[i]->GetImg()->w +Getsommets()[i]->GetCd_x()+1,Getsommets()[i]->GetImg()->h+Getsommets()[i]->GetCd_y()+1, makecol(0,255,0));
+
+            if(mouse_b&1)
+            {
+                while(mouse_b&1)
+                {
+                    Getsommets()[i]->SetCd_x(mouse_x-Getsommets()[i]->GetImg()->w/2);
+                    Getsommets()[i]->SetCd_y(mouse_y-Getsommets()[i]->GetImg()->h/2);
+
+                    affichage(buffer, barre);
+                }
+            }
         }
     }
 }
