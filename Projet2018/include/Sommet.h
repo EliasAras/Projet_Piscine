@@ -8,24 +8,24 @@ class Sommet
         Sommet();
         ~Sommet();
 
-        int Getcd_x() { return m_cd_x; }
-        int Getcd_y() { return m_cd_y; }
-        int Getnum() { return m_num; }
-        int Getpoids() { return m_poids; }
-        BITMAP* Getimg() { return m_img; }
+        int GetCd_x() { return m_cd_x; }
+        int GetCd_y() { return m_cd_y; }
+        int GetNum() { return m_num; }
+        int GetPoids() { return m_poids; }
+        BITMAP* GetImg() { return m_img; }
 
-        void Setcd_x(int val) { m_cd_x = val; }
-        void Setcd_y(int val) { m_cd_y = val; }
-        void Setimg(BITMAP* val) { m_img = val; }
-        void Setnum(int val) { m_num = val; }
-        void Setpoids(int val) { m_poids = val; }
+        void SetCd_x(int val) { m_cd_x = val; }
+        void SetCd_y(int val) { m_cd_y = val; }
+        void SetNum(int val) { m_num = val; }
+        void SetPoids(int val) { m_poids = val; }
+        void SetImg(BITMAP* val) { m_img = val; }
 
     private:
         int m_cd_x;
         int m_cd_y;
-        BITMAP* m_img;
         int m_num;
         int m_poids;
+        BITMAP* m_img;
 };
 
 #endif // SOMMET_H

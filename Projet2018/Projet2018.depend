@@ -1,9 +1,15 @@
 # depslib dependency file v1.0
-1522769445 source:c:\users\nathan\documents\github\projet_piscine\projet2018\main.cpp
+1522770395 source:c:\users\nathan\documents\github\projet_piscine\projet2018\main.cpp
 	<iostream>
 	<allegro.h>
 	<png.h>
 	<loadpng.h>
 	<jpgalleg.h>
 	<ctime>
+
+1522770241 source:c:\users\nathan\documents\github\projet_piscine\projet2018\src\sommet.cpp
+	"Sommet.h"
+
+1522770889 c:\users\nathan\documents\github\projet_piscine\projet2018\include\sommet.h
+	<allegro.h>
 
