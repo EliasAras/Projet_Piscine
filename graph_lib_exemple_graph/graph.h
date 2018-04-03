@@ -237,7 +237,29 @@ class Edge
         void post_update();
 };
 
-
+//class ToolBox
+//{
+//    private :
+//        /// le POINTEUR sur l'interface associée, nullptr -> pas d'interface
+//        std::shared_ptr<VertexInterface> m_interface = nullptr;
+//
+//        int m_nb_image;
+//
+//        grman::WidgetBox m_tool_box;
+//
+//    public:
+//
+//        /// Les constructeurs sont à compléter selon vos besoin...
+//        /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
+//        ToolBox (int =0, VertexInterface *interface=nullptr) :
+//            m_value(value), m_interface(interface)  {  }
+//
+//        /// Vertex étant géré par Graph ce sera la méthode update de graph qui appellera
+//        /// le pre_update et post_update de Vertex (pas directement la boucle de jeu)
+//        /// Voir l'implémentation Graph::update dans le .cpp
+//        void pre_update();
+//        void post_update();
+//};
 
 
 /***************************************************

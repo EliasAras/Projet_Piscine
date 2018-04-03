@@ -109,29 +109,49 @@
 1522761318 source:c:\users\batpi\desktop\piscine1\projet_piscine\graph_lib_exemple_graph\graph.cpp
 	"graph.h"
 
+<<<<<<< HEAD
 1522764869 source:c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\graph.cpp
 	"graph.h"
 
 1522754486 c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\graph.h
+=======
+1522764619 source:c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522764475 c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\graph.h
+>>>>>>> dfbfac05ffb56c2f56e06d204dbd1c151a5358f3
 	<vector>
 	<map>
 	<string>
 	<memory>
 	"grman/grman.h"
 
+<<<<<<< HEAD
 1522754486 c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\grman\grman.h
+=======
+1522764754 c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\grman\grman.h
+>>>>>>> dfbfac05ffb56c2f56e06d204dbd1c151a5358f3
 	<allegro.h>
 	<string>
 	"grman_couleurs.h"
 	"coords.h"
 	"widget.h"
 
+<<<<<<< HEAD
 1522754486 c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\grman\grman_couleurs.h
 
 1522754486 c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\grman\coords.h
 	<cmath>
 
 1522754486 c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\grman\widget.h
+=======
+1522762273 c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522762273 c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522762273 c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\grman\widget.h
+>>>>>>> dfbfac05ffb56c2f56e06d204dbd1c151a5358f3
 	"grman.h"
 	<iostream>
 	<string>
@@ -139,10 +159,17 @@
 	<algorithm>
 	<allegro.h>
 
+<<<<<<< HEAD
 1522767312 source:c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\grman\coords.cpp
 	"coords.h"
 
 1522765835 source:c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\grman\grman.cpp
+=======
+1522762273 source:c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522762273 source:c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\grman\grman.cpp
+>>>>>>> dfbfac05ffb56c2f56e06d204dbd1c151a5358f3
 	<cmath>
 	<unordered_map>
 	<unordered_set>
@@ -156,10 +183,17 @@
 	<loadpng.h>
 	<jpgalleg.h>
 
+<<<<<<< HEAD
 1522754486 source:c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\grman\widget.cpp
 	"widget.h"
 
 1522765495 source:c:\users\nathan\documents\github\projet_piscine\graph_lib_exemple_graph\main.cpp
+=======
+1522762273 source:c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522762273 source:c:\users\elias\desktop\projet piscine\projet_piscine\graph_lib_exemple_graph\main.cpp
+>>>>>>> dfbfac05ffb56c2f56e06d204dbd1c151a5358f3
 	"grman/grman.h"
 	<iostream>
 	"graph.h"
