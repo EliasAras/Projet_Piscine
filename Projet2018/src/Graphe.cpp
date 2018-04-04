@@ -138,7 +138,18 @@ void Graphe::ajouterArete(BITMAP* buffer)
 
 void Graphe::suppSommet()
 {
+    std::vector<Sommet*> tmp(Getsommets());
 
+    for(int i(Getsommets().size()-1); i >= 0 ; --i)
+    {
+        if(is_sommmet(i))
+        {
+            if(mouse_b&1)
+                tmp.erase(tmp.begin(), tmp.begin()-1);
+        }
+    }
+
+    Setsommets(tmp);
 }
 
 void Graphe::update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
