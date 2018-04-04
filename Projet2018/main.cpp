@@ -36,10 +36,6 @@ int main()
 
     Graphe g("Sommets.txt");
     show_mouse(screen);
-    for (unsigned int i(0); i<g.Getsommets().size(); ++i)
-    {
-        blit(g.getSommet(i)->GetImg(), buffer, 0, 0, (g.getSommet(i))->GetCd_x(), (g.getSommet(i))->GetCd_y(), g.getSommet(i)->GetImg()->w, g.getSommet(i)->GetImg()->h);
-    }
 
     while (!key[KEY_ESC])
     {
