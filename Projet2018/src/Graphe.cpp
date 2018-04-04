@@ -78,7 +78,7 @@ void Graphe::outils(BITMAP* buffer)
 
         if(mouse_b&1)
         {
-            //ajouterSommet();
+            ajouSommet();
         }
     }
 
@@ -151,6 +151,32 @@ void Graphe::ajouterArete(BITMAP* buffer)
     std::cout << "ajou reussi" << std::endl;
 }
 
+void Graphe::ajouSommet()
+{
+    Sommet* s;
+    int prev_mouse_b;
+    int now_mouse_b;
+
+    s = new Sommet;
+
+    std::vector<Sommet*> som(Getsommets());
+
+    while(s->getNomImg() == "")
+    {
+        prev_mouse_b = now_mouse_b;
+        now_mouse_b = mouse_b&1;
+
+        if (!prev_mouse_b && now_mouse_b)
+        {
+            //s->SetCd_x(500)
+            s = new Sommet(500, 400, 12, 40, "Images/laminaire.jpg");
+            som.push_back(s);
+        }
+    }
+
+    Setsommets(som);
+}
+
 void Graphe::suppSommet()
 {
     int prev_mouse_b;
@@ -158,6 +184,8 @@ void Graphe::suppSommet()
 
     std::vector<Sommet*> tmp(Getsommets());
     std::vector<Arete*> temp(Getaretes());
+
+    bool stop(false);
 
     if(tmp.size() > 0)
     {
@@ -168,9 +196,12 @@ void Graphe::suppSommet()
 
             for(unsigned int i(0); i < tmp.size() ; ++i)
             {
+                if(i == 0)
+                   stop = false;
+
                 if(is_sommmet(i))
                 {
-                    if (!prev_mouse_b && now_mouse_b)
+                    if (!prev_mouse_b && now_mouse_b && !stop)
                     {
                         for(unsigned int j(0); j < temp.size(); ++j)
                         {
@@ -180,7 +211,9 @@ void Graphe::suppSommet()
                                 --j;
                             }
                         }
+
                         tmp.erase(tmp.begin()+i);
+                        stop = true;
                     }
                 }
             }

@@ -39,6 +39,7 @@ class Graphe
         bool is_sommmet(int i);
 
         void ajouterArete(BITMAP* buffer);
+        void ajouSommet();
         void suppSommet();
 
     private:
