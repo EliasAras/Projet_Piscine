@@ -19,33 +19,36 @@
 
 1522770900 
 
-1522771776 source:c:\users\elias\desktop\projet_piscine\projet2018\main.cpp
+1522835075 source:c:\users\elias\desktop\projet_piscine\projet2018\main.cpp
+	"Graphe.h"
+
+1522780848 source:c:\users\elias\desktop\projet_piscine\projet2018\src\arete.cpp
+	"Arete.h"
+
+1522780848 source:c:\users\elias\desktop\projet_piscine\projet2018\src\sommet.cpp
+	"Sommet.h"
+
+1522780848 c:\users\elias\desktop\projet_piscine\projet2018\include\arete.h
+	"Sommet.h"
+
+1522780848 c:\users\elias\desktop\projet_piscine\projet2018\include\sommet.h
+	<allegro.h>
+	<string>
+
+1522835226 source:c:\users\elias\desktop\projet_piscine\projet2018\src\graphe.cpp
+	"Graphe.h"
+
+1522835075 c:\users\elias\desktop\projet_piscine\projet2018\include\graphe.h
+	"Sommet.h"
+	"Arete.h"
+	<vector>
+	<fstream>
 	<iostream>
 	<allegro.h>
 	<png.h>
 	<loadpng.h>
 	<jpgalleg.h>
 	<ctime>
-
-1522771899 source:c:\users\elias\desktop\projet_piscine\projet2018\src\arete.cpp
-	"Arete.h"
-
-1522771899 source:c:\users\elias\desktop\projet_piscine\projet2018\src\sommet.cpp
-	"Sommet.h"
-
-1522771457 c:\users\elias\desktop\projet_piscine\projet2018\include\arete.h
-	"Sommet.h"
-
-1522771969 c:\users\elias\desktop\projet_piscine\projet2018\include\sommet.h
-	<allegro.h>
-
-1522771899 source:c:\users\elias\desktop\projet_piscine\projet2018\src\graphe.cpp
-	"Graphe.h"
-
-1522771899 c:\users\elias\desktop\projet_piscine\projet2018\include\graphe.h
-	"Sommet.h"
-	"Arete.h"
-	<vector>
 
 1522771899 6420046a52a10201ae7e9c3164a368cd36c77
 
@@ -64,10 +67,10 @@
 	<jpgalleg.h>
 	<ctime>
 
-1522830497 source:c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\main.cpp
+1522836626 source:c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\main.cpp
 	"Graphe.h"
 
-1522830497 c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\include\graphe.h
+1522835464 c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\include\graphe.h
 	"Sommet.h"
 	"Arete.h"
 	<vector>
@@ -89,7 +92,7 @@
 1522781579 source:c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\src\arete.cpp
 	"Arete.h"
 
-1522830497 source:c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\src\graphe.cpp
+1522837178 source:c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\src\graphe.cpp
 	"Graphe.h"
 
 1522781579 source:c:\users\batpi\desktop\piscine1\projet_piscine\projet2018\src\sommet.cpp
