@@ -36,8 +36,10 @@ class Graphe
 
         void update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche);
         bool is_mouse(int x, int weight, int Y, int height);
+        bool is_sommmet(int i);
 
         void ajouterArete(BITMAP* buffer);
+        void suppSommet();
 
     private:
         std::vector<Sommet*> m_sommets;

@@ -52,31 +52,42 @@ void Graphe::affichage(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
     clear_bitmap(buffer);
 }
 
-/*void Graphe::ajouter()
-{
-    rectfill(buffer, )
-
-    ajouterSommet(new Sommet(cd_x, cd_y, num, poids, nom_img));
-}*/
-
 void Graphe::outils(BITMAP* buffer)
 {
-    if (is_mouse(745, 50, 5, 50) && mouse_b&1)
+    if (is_mouse(745, 50, 5, 50))
     {
-        rectfill(buffer, 743, 3, 797, 57, makecol(255,0,0));
-        ajouterArete(buffer);
+        rectfill(buffer, 743, 3, 797, 57, makecol(0,250,0));
+
+        if(mouse_b&1)
+            ajouterArete(buffer);
     }
 
-    if (is_mouse(745, 50, 55, 50) && mouse_b&1)
+    if (is_mouse(745, 50, 65, 50))
     {
         rectfill(buffer, 743, 63, 797, 117, makecol(255,0,0));
-        ajouterSommet(new Sommet(10, 10, 30, 1, "laminaire.jpg"));
 
+        if(mouse_b&1)
+        {
+            suppSommet();
+        }
     }
 
+    if (is_mouse(745, 50, 125, 50))
+    {
+        rectfill(buffer, 743, 123, 797, 177, makecol(255,0,255));
+
+        if(mouse_b&1)
+        {
+            //ajouterSommet();
+        }
+    }
+
+
     rectfill(buffer, 745, 5, 795, 55, makecol(0,250,0));
+
     rectfill(buffer, 745, 65, 795, 115, makecol(255, 0, 0));
 
+    rectfill(buffer, 745, 125, 795, 175, makecol(255,0,255));
 
 
 }
@@ -102,7 +113,7 @@ void Graphe::ajouterArete(BITMAP* buffer)
         now_mouse_b = mouse_b&1;
         for (unsigned int i(Getsommets().size() - 1); i > 0; --i)
         {
-            if(is_mouse(Getsommets()[i]->GetCd_x(), Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h))
+            if(is_sommmet(i))
             {
                 if (!prev_mouse_b && now_mouse_b)
                 {
@@ -123,7 +134,7 @@ void Graphe::ajouterArete(BITMAP* buffer)
         now_mouse_b = mouse_b&1;
         for (unsigned int i(0); i<Getsommets().size(); ++i)
         {
-            if(is_mouse(Getsommets()[i]->GetCd_x(), Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h))
+            if(is_sommmet(i))
             {
                 if (!prev_mouse_b && now_mouse_b)
                 {
@@ -140,18 +151,33 @@ void Graphe::ajouterArete(BITMAP* buffer)
     std::cout << "ajou reussi" << std::endl;
 }
 
+void Graphe::suppSommet()
+{
+    std::vector<Sommet*> tmp(Getsommets());
+
+    for(int i(Getsommets().size()-1); i >= 0 ; --i)
+    {
+        if(is_sommmet(i))
+        {
+            if(mouse_b&1)
+                tmp.erase(tmp.begin(), tmp.begin()-1);
+        }
+    }
+
+    Setsommets(tmp);
+}
+
 void Graphe::update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
 {
     for(int i(Getsommets().size()-1); i >= 0 ; --i)
     {
-        if(is_mouse(Getsommets()[i]->GetCd_x(), Getsommets()[i]->GetImg()->w, Getsommets()[i]->GetCd_y(), Getsommets()[i]->GetImg()->h))
+        if(is_sommmet(i))
         {
             if(mouse_b&1)
             {
-
                 while(mouse_b&1)
                 {
-                    rectfill(buffer, Getsommets()[i]->GetCd_x()-2, Getsommets()[i]->GetCd_y()-2, Getsommets()[i]->GetImg()->w +Getsommets()[i]->GetCd_x()+1,Getsommets()[i]->GetImg()->h+Getsommets()[i]->GetCd_y()+1, makecol(0,255,0));
+                    rectfill(buffer, Getsommets()[i]->GetCd_x()-2, Getsommets()[i]->GetCd_y()-2, Getsommets()[i]->GetImg()->w +Getsommets()[i]->GetCd_x()+1,Getsommets()[i]->GetImg()->h + Getsommets()[i]->GetCd_y()+1, makecol(0,255,0));
 
                     Getsommets()[i]->SetCd_x(mouse_x-Getsommets()[i]->GetImg()->w/2);
                     Getsommets()[i]->SetCd_y(mouse_y-Getsommets()[i]->GetImg()->h/2);
@@ -166,4 +192,10 @@ void Graphe::update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
 bool Graphe::is_mouse(int x, int weight, int y, int height)
 {
     return     mouse_x >= x && mouse_x <= x + weight  &&  mouse_y >= y && mouse_y <= y + height;
+}
+
+bool Graphe::is_sommmet(int i)
+{
+    return     mouse_x >= Getsommets()[i]->GetCd_x() && mouse_x <= Getsommets()[i]->GetCd_x() + Getsommets()[i]->GetImg()->w
+            &&  mouse_y >= Getsommets()[i]->GetCd_y() && mouse_y <= Getsommets()[i]->GetCd_y() + Getsommets()[i]->GetImg()->h;
 }
