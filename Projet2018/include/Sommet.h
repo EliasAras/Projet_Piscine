@@ -10,7 +10,7 @@ class Sommet
         Sommet(int cd_x, int cd_y, int num, int poids, std::string nom_img);
         ~Sommet();
 
-        int& GetCd_x() { return m_cd_x; }
+        int GetCd_x() { return m_cd_x; }
         int GetCd_y() { return m_cd_y; }
         int GetNum() { return m_num; }
         int GetPoids() { return m_poids; }

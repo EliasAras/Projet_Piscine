@@ -158,8 +158,6 @@ void Graphe::suppSommet()
 
     int j(0);
 
-    Sommet* s;
-    s = new Sommet;
     std::vector<Sommet*> tmp(Getsommets());
     std::vector<Arete*> temp(Getaretes());
 
@@ -170,13 +168,20 @@ void Graphe::suppSommet()
             prev_mouse_b = now_mouse_b;
             now_mouse_b = mouse_b&1;
 
-            for(int i(tmp.size()-1); i >= 0 ; --i)
+            for(int i(0); i < tmp.size() ; ++i)
             {
                 if(is_sommmet(i))
                 {
                     if (!prev_mouse_b && now_mouse_b)
                     {
-                        s = tmp[i];
+                        for(int j(0); j < temp.size(); ++j)
+                        {
+                            if(tmp[i] == temp[j]->Getdepart() || tmp[i] == temp[j]->Getarrive())
+                            {
+                                temp.erase(temp.begin() + j);
+                                --j;
+                            }
+                        }
                         tmp.erase(tmp.begin()+i);
                     }
                 }
@@ -184,21 +189,11 @@ void Graphe::suppSommet()
         }
     }
 
-    while(j < Getaretes().size())
-    {
-        ++j;
-
-        if(s == Getaretes()[j]->Getdepart() || s == Getaretes()[j]->Getarrive())
-        {
-            temp.erase(temp.begin() + j);
-            j=0;
-        }
-    }
-
-
     Setsommets(tmp);
     Setaretes(temp);
 }
+
+
 
 void Graphe::update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
 {
