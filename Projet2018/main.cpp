@@ -34,14 +34,22 @@ int main()
         exit(EXIT_FAILURE);
     }
 
+    BITMAP* fleche;
+    fleche = load_bitmap("Images/fleche.png", NULL);
+    if(!fleche)
+    {
+        allegro_message("pas pu trouver fleche.png");
+        exit(EXIT_FAILURE);
+    }
+
     Graphe g("Sommets.txt");
     show_mouse(screen);
 
     while (!key[KEY_ESC])
     {
-        g.update(buffer, barre);
+        g.update(buffer, barre, fleche);
 
-        g.affichage(buffer, barre);
+        g.affichage(buffer, barre, fleche);
 
 
 

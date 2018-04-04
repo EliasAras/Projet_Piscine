@@ -32,11 +32,18 @@ Graphe::~Graphe()
     //dtor
 }
 
-void Graphe::affichage(BITMAP* buffer, BITMAP* barre)
+void Graphe::affichage(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
 {
     for (unsigned int i(0); i<Getsommets().size(); ++i)
     {
         blit(getSommet(i)->GetImg(), buffer, 0, 0, (getSommet(i))->GetCd_x(), (getSommet(i))->GetCd_y(), getSommet(i)->GetImg()->w, getSommet(i)->GetImg()->h);
+    }
+
+    for (unsigned int i(0); i <Getaretes().size(); ++i)
+    {
+        line(buffer, Getaretes()[i]->Getdepart()->GetCd_x() + Getaretes()[i]->Getdepart()->GetImg()->w/2, Getaretes()[i]->Getdepart()->GetCd_y() + Getaretes()[i]->Getdepart()->GetImg()->h/2, Getaretes()[i]->Getarrive()->GetCd_x() + Getaretes()[i]->Getarrive()->GetImg()->w/2, Getaretes()[i]->Getarrive()->GetCd_y() + Getaretes()[i]->Getarrive()->GetImg()->h/2, makecol(255,0,0));
+
+        //stretch_sprite(buffer, fleche, Getaretes()[i]->Getdepart()->GetCd_x(), Getaretes()[i]->Getdepart()->GetCd_y(), Getaretes()[i]->Getdepart()->GetImg()->w, Getaretes()[i]->Getdepart()->GetImg()->h/*, Getaretes()[i]->Getarrive()->GetCd_x(), Getaretes()[i]->Getarrive()->GetCd_y(), Getaretes()[i]->Getarrive()->GetImg()->w, Getaretes()[i]->Getarrive()->GetImg()->h*/);
     }
 
     blit(barre, buffer,0,0,0,600 - barre->h, barre->w, barre->h);
@@ -68,6 +75,8 @@ void Graphe::ajouterArete(BITMAP* buffer)
     s= new Sommet;
 
     std::vector<Arete*> tmp;
+
+    tmp = Getaretes();
 
     while(s->getNomImg() == "")
     {
@@ -114,7 +123,7 @@ void Graphe::ajouterArete(BITMAP* buffer)
     std::cout << "ajou reussi" << std::endl;
 }
 
-void Graphe::update(BITMAP* buffer, BITMAP* barre)
+void Graphe::update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
 {
     for(int i(Getsommets().size()-1); i >= 0 ; --i)
     {
@@ -130,7 +139,7 @@ void Graphe::update(BITMAP* buffer, BITMAP* barre)
                     Getsommets()[i]->SetCd_x(mouse_x-Getsommets()[i]->GetImg()->w/2);
                     Getsommets()[i]->SetCd_y(mouse_y-Getsommets()[i]->GetImg()->h/2);
 
-                    affichage(buffer, barre);
+                    affichage(buffer, barre, fleche);
                 }
             }
         }

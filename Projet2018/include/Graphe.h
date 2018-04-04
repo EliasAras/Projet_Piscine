@@ -31,10 +31,10 @@ class Graphe
         void ajouterSommet(Sommet* val) { m_sommets.push_back(val); }
         Sommet* getSommet(int val) { return m_sommets[val]; } /// POUR UN SEUL SOMMET
 
-        void affichage(BITMAP* buffer, BITMAP* barre);
+        void affichage(BITMAP* buffer, BITMAP* barre, BITMAP* fleche);
         void outils(BITMAP* buffer);
 
-        void update(BITMAP* buffer, BITMAP* barre);
+        void update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche);
         bool is_mouse(int x, int weight, int Y, int height);
 
         void ajouterArete(BITMAP* buffer);
