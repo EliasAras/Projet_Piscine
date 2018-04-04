@@ -50,9 +50,6 @@ int main()
         g.update(buffer, barre, fleche);
 
         g.affichage(buffer, barre, fleche);
-
-
-
     }
 
     destroy_bitmap(buffer);

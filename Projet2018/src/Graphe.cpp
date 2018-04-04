@@ -29,7 +29,7 @@ Graphe::Graphe(std::string nom_fichier)
 
 Graphe::~Graphe()
 {
-    //dtor
+
 }
 
 void Graphe::affichage(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
@@ -64,7 +64,7 @@ void Graphe::outils(BITMAP* buffer)
 
     if (is_mouse(745, 50, 65, 50))
     {
-        rectfill(buffer, 743, 63, 797, 117, makecol(255,0,255));
+        rectfill(buffer, 743, 63, 797, 117, makecol(255,0,0));
 
         if(mouse_b&1)
         {
@@ -72,8 +72,23 @@ void Graphe::outils(BITMAP* buffer)
         }
     }
 
+    if (is_mouse(745, 50, 125, 50))
+    {
+        rectfill(buffer, 743, 123, 797, 177, makecol(255,0,255));
+
+        if(mouse_b&1)
+        {
+            //ajouterSommet();
+        }
+    }
+
+
     rectfill(buffer, 745, 5, 795, 55, makecol(0,250,0));
-    rectfill(buffer, 745, 65, 795, 115, makecol(255,0,255));
+
+    rectfill(buffer, 745, 65, 795, 115, makecol(255, 0, 0));
+
+    rectfill(buffer, 745, 125, 795, 175, makecol(255,0,255));
+
 
 }
 
@@ -138,18 +153,51 @@ void Graphe::ajouterArete(BITMAP* buffer)
 
 void Graphe::suppSommet()
 {
-    std::vector<Sommet*> tmp(Getsommets());
+    int prev_mouse_b;
+    int now_mouse_b;
 
-    for(int i(Getsommets().size()-1); i >= 0 ; --i)
+    int j(0);
+
+    Sommet* s;
+    s = new Sommet;
+    std::vector<Sommet*> tmp(Getsommets());
+    std::vector<Arete*> temp(Getaretes());
+
+    if(tmp.size() > 0)
     {
-        if(is_sommmet(i))
+        while(tmp.size()+1 != Getsommets().size())
         {
-            if(mouse_b&1)
-                tmp.erase(tmp.begin(), tmp.begin()-1);
+            prev_mouse_b = now_mouse_b;
+            now_mouse_b = mouse_b&1;
+
+            for(int i(tmp.size()-1); i >= 0 ; --i)
+            {
+                if(is_sommmet(i))
+                {
+                    if (!prev_mouse_b && now_mouse_b)
+                    {
+                        s = tmp[i];
+                        tmp.erase(tmp.begin()+i);
+                    }
+                }
+            }
         }
     }
 
+    while(j < Getaretes().size())
+    {
+        ++j;
+
+        if(s == Getaretes()[j]->Getdepart() || s == Getaretes()[j]->Getarrive())
+        {
+            temp.erase(temp.begin() + j);
+            j=0;
+        }
+    }
+
+
     Setsommets(tmp);
+    Setaretes(temp);
 }
 
 void Graphe::update(BITMAP* buffer, BITMAP* barre, BITMAP* fleche)
@@ -182,5 +230,5 @@ bool Graphe::is_mouse(int x, int weight, int y, int height)
 bool Graphe::is_sommmet(int i)
 {
     return     mouse_x >= Getsommets()[i]->GetCd_x() && mouse_x <= Getsommets()[i]->GetCd_x() + Getsommets()[i]->GetImg()->w
-            &&  mouse_y >= Getsommets()[i]->GetCd_y() && mouse_y <= Getsommets()[i]->GetCd_y() + Getsommets()[i]->GetImg()->h;
+               &&  mouse_y >= Getsommets()[i]->GetCd_y() && mouse_y <= Getsommets()[i]->GetCd_y() + Getsommets()[i]->GetImg()->h;
 }
