@@ -111,7 +111,7 @@ void Graphe::ajouterArete(BITMAP* buffer)
 
         prev_mouse_b = now_mouse_b;
         now_mouse_b = mouse_b&1;
-        for (unsigned int i(Getsommets().size() - 1); i > 0; --i)
+        for (unsigned int i(0); i<Getsommets().size(); ++i)
         {
             if(is_sommmet(i))
             {
@@ -156,8 +156,6 @@ void Graphe::suppSommet()
     int prev_mouse_b;
     int now_mouse_b;
 
-    int j(0);
-
     std::vector<Sommet*> tmp(Getsommets());
     std::vector<Arete*> temp(Getaretes());
 
@@ -168,13 +166,13 @@ void Graphe::suppSommet()
             prev_mouse_b = now_mouse_b;
             now_mouse_b = mouse_b&1;
 
-            for(int i(0); i < tmp.size() ; ++i)
+            for(unsigned int i(0); i < tmp.size() ; ++i)
             {
                 if(is_sommmet(i))
                 {
                     if (!prev_mouse_b && now_mouse_b)
                     {
-                        for(int j(0); j < temp.size(); ++j)
+                        for(unsigned int j(0); j < temp.size(); ++j)
                         {
                             if(tmp[i] == temp[j]->Getdepart() || tmp[i] == temp[j]->Getarrive())
                             {
